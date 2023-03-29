@@ -1,0 +1,66 @@
+:root {
+  --primary-dark: #23424A;
+  --primary-medium: #136C72;
+  --primary-light: #3BCFD9;
+
+  --font-family: "Roboto", sans-serif;
+  --body-font-size: 21px;
+  --bold-font-weight: 700;
+  --title-font-size: 48px;
+  --title-font-weight: 900;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: var(--body-font-size);
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  line-height: 1.5;
+  color: white;
+}
+
+.container {
+  background-color: var(--primary-dark);
+  padding: 4rem;
+}
+
+.column {
+  max-width: 55%;
+}
+
+.btn {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--body-font-size);
+  font-weight: var(--bold-font-weight);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.subtitle {
+  margin: 1rem 0 2rem; 
+}
+
+.title {
+  margin: 1rem 0;
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  line-height: 1.1666;
+}
