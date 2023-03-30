@@ -31,34 +31,57 @@ body {
   font-size: var(--body-font-size);
   line-height: 1.5;
   color: white;
+  box-sizing: border-box;
+}
+
+/* 
+* Changes introduced from KP solution:
+* - it is better to wrap content in its own div than hardcode content padding.
+* - hardcode padding is large on small devices
+* - instead, margin: 0 auto; + width: percentage; centers and adapts.
+* */
+.hero {
+  background-color: var(--primary-dark);
+  padding: 4rem 0;
 }
 
 .container {
-  background-color: var(--primary-dark);
-  padding: 4rem;
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .column {
-  max-width: 55%;
+  max-width: 60%;
 }
 
 .btn {
+  /* Button typography */
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: var(--body-font-size);
   font-weight: var(--bold-font-weight);
   background-color: var(--primary-light);
   color: var(--primary-dark);
+
+  /* Button layout/reset */
   border: none;
   border-radius: 1.5rem;
   padding: 1rem 2rem;
 }
 
-.subtitle {
+
+/* Change from KP solution: .subtitle and .title => .hero p and .hero h1
+*
+* Takeaway: 
+* What's the point of classes if you don't reuse them?
+* You don't have to always make classes all the time!
+*/
+.hero p {
   margin: 1rem 0 2rem; 
 }
 
-.title {
+.hero h1 {
   margin: 1rem 0;
   font-weight: var(--title-font-weight);
   font-size: var(--title-font-size);
