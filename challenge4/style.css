@@ -1,0 +1,111 @@
+:root {
+  --primary-dark: #23424A;
+  --primary-medium: #136C72;
+  --primary-light: #3BCFD9;
+  --secondary-dark: #87629A;
+  --black: #3A3A3A;
+  --white: #FFFFFF;
+  /* --white: #C5C5C5; */
+
+  --font-family: "Roboto", sans-serif;
+  --body-font-size: 21px;
+  --bold-font-weight: 700;
+  --title-font-size: 48px;
+  --title-font-weight: 900;
+  --h2-font-size: 36px;
+  --h2-font-weight: 900;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: var(--body-font-size);
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--body-font-weight);
+  font-size: var(--body-font-size);
+  color: var(--black);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.card {
+  padding: 4rem 0;
+}
+
+.hero {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+.zero {
+  background-color: var(--primary-medium);
+  color: var(--white);
+}
+
+.hero .col {
+  max-width: 60%;
+}
+.mero .col,
+.zero .col {
+  text-align: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.btn {
+  /* Button typography */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--body-font-size);
+  font-weight: var(--bold-font-weight);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+
+  /* Button layout/reset */
+  border: none;
+  border-radius: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.card h1 {
+  margin: 1rem 0;
+  font-size: var(--title-font-size);
+  font-weight: var(--title-font-weight);
+  line-height: 1.1666;
+}
+
+.card h2 {
+  margin: 1rem 0;
+  font-size: var(--h2-font-size);
+  font-weight: var(--h2-font-weight);
+  line-height: 1.5556;
+}
+
+.card p {
+  margin: 1rem 0 2rem; 
+}
+
+.mero h2 {
+  color: var(--secondary-dark);
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+}
