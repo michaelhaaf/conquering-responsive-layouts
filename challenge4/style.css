@@ -41,7 +41,7 @@ body {
 }
 
 .card {
-  padding: 4rem 0;
+  padding: 4em 0;
 }
 
 .hero {
@@ -79,8 +79,8 @@ body {
 
   /* Button layout/reset */
   border: none;
-  border-radius: 1.5rem;
-  padding: 1rem 2rem;
+  border-radius: 1.5em;
+  padding: 1em 2em;
 }
 
 .card h1 {
