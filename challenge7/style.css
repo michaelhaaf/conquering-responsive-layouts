@@ -1,0 +1,147 @@
+:root {
+  --primary-dark: #222C2A;
+  --primary-medium: #824936;
+  --primary-light: #F3EED9;
+  --secondary-dark: #87629a;
+  --black: #000000;
+  --white: #ffffff;
+
+  --font-family-body: "Roboto", sans-serif;
+  --font-family-headers: "Playfair Display", serif;
+  --body-font-size: 21px;
+  --h1-font-size: 60px;
+  --h2-font-size: 36px;
+  --header-font-weight: 900;
+  --subheader-font-size: 18px;
+  --subheader-font-weight: 300;
+
+  --container-width: 1128px;
+  --min-title-card-height: 660px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Inspiration: https://andy-bell.co.uk/a-modern-css-reset/ */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html {
+  font-size: var(--body-font-size);
+}
+
+body {
+  font-family: var(--font-family-body);
+  color: var(--primary-dark);
+  line-height: 1.5;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+  font-family: var(--font-family-headers);
+  font-weight: var(--header-font-weight);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  line-height: 1.1666;
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  line-height: 1.5556;
+}
+
+p {
+  margin: 1rem 0 2rem;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 3em;
+}
+
+.flex-two-column {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-two-column > * {
+  max-width: 50%;
+}
+
+.card {
+  padding: 4em 0;
+}
+
+.hero {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  text-align: center;
+  min-height: var(--min-title-card-height);
+}
+
+.kero {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+
+.lero {
+  background-color: var(--primary-medium);
+  color: var(--white);
+}
+
+.hero.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  color: var(--primary-medium);
+}
+
+.hero span {
+  font-size: var(--subheader-font-size);
+  font-weight: var(--subheader-font-weight);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
+
+.jero h2 {
+  color: var(--primary-medium);
+  text-align: center;
+}
+
+.kero h2 {
+  color: var(--primary-light);
+}
+
+.lero h2 {
+  color: var(--primary-light);
+}
+
