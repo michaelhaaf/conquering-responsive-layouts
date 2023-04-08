@@ -102,7 +102,6 @@ p {
 .row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 3rem;
 }
 
@@ -150,6 +149,11 @@ p {
   text-transform: uppercase;
 }
 
+.nav .row,
+.hero .row {
+  align-items: center;
+}
+
 .nav .btn {
   background-color: var(--white);
   color: var(--primary-medium);
@@ -171,4 +175,20 @@ p {
 
 .primary-content h2 {
   color: var(--primary-medium);
+}
+
+@media (max-width: 800px) {
+  .row {
+    display: block;
+  }
+
+  .primary-content,
+  .hero .item {
+    max-width: 100%;
+  }
+
+  .row img {
+    margin-top: 2em;
+  }
+
 }
