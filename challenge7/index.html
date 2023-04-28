@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Challenge 5</title>
+    <title>Challenge 7 (with extras)</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style.css" rel="stylesheet" />
@@ -11,18 +11,24 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <script src="http://files.keyes.ie/things/baseliner/baseliner-latest.min.js"></script>
+    <script>
+      window.onload = function () {
+        baseliner = new Baseliner({gridColor: 'red'});
+      };
+    </script>
   </head>
   <body>
-    <section class="hero card">
+    <section class="section-1 card">
       <div class="container">
         <span>Lorem Ipsum Sit</span>
         <h1>Responsive layouts don't have to be a struggle</h1>
       </div>
     </section>
-    <section class="jero card">
+    <section class="section-2 card">
       <div class="container">
         <h2>Quality Designs</h2>
-        <div class="flex-row flex-two-column">
+        <div class="flex-row two-column">
           <p>
             Lorem ipsum dolor sit amet, officia excepteur ex fugiat
             reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
@@ -48,9 +54,9 @@
         </div>
       </div>
     </section>
-    <section class="kero card">
+    <section class="section-3 card">
       <div class="container">
-        <div class="flex-row flex-two-column">
+        <div class="flex-row two-column">
           <div>
             <h2>Made custom for you</h2>
             <p>
@@ -72,9 +78,9 @@
         </div>
       </div>
     </section>
-    <section class="lero card">
+    <section class="section-4 card">
       <div class="container">
-        <div class="flex-row flex-two-column">
+        <div class="flex-row two-column">
           <img src="./assets/image-02.jpg" alt="" />
           <div>
             <h2>Created with care</h2>

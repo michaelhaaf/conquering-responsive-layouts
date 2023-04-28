@@ -1,147 +1,311 @@
+/* inspired (indirectly) by https://tailwindcss.com/docs/space 
+
+   I actually forget the more direct source, but this idea of defining a geometrically scaling set of inset/space/stack/offset sizes seems to be pretty common and is well documented at the link above.
+*/
 :root {
-  --primary-dark: #222C2A;
+  /* Default: 1rem = 16px, 2rem = 32px */
+  /* Line height will be set to 32px to allow larger than 16px body font */
+  /* Spacing is set accordingly */
+  --space-default: 2rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 2rem;
+  --space-l: 4rem;
+  --space-xl: 8rem;
+
+  /* em, unlike rem, will scale to element font, which is appropriate for inset */
+  --space-inset-default: 1em;
+  --space-inset-xs: 0.25em;
+  --space-inset-s: 0.5em;
+  --space-inset-m: 1em;
+  --space-inset-l: 2em;
+  --space-inset-xl: 4em;
+
+  --space-stack-default: 0 0 2rem 0;
+  --space-stack-xs: 0 0 0.5rem 0;
+  --space-stack-s: 0 0 1rem 0;
+  --space-stack-m: 0 0 2rem 0;
+  --space-stack-l: 0 0 4rem 0;
+  --space-stack-xl: 0 0 8rem 0;
+
+  --space-offset-default: 1rem 0 0 0;
+  --space-offset-xs: 0.25rem 0 0 0;
+  --space-offset-s: 0.5rem 0 0 0;
+  --space-offset-m: 1rem 0 0 0;
+  --space-offset-l: 2rem 0 0 0;
+  --space-offset-xl: 4rem 0 0 0;
+}
+
+:root {
+  --primary-dark: #222c2a;
   --primary-medium: #824936;
-  --primary-light: #F3EED9;
+  --primary-light: #f3eed9;
   --secondary-dark: #87629a;
   --black: #000000;
   --white: #ffffff;
+}
 
+:root {
   --font-family-body: "Roboto", sans-serif;
   --font-family-headers: "Playfair Display", serif;
-  --body-font-size: 21px;
-  --h1-font-size: 60px;
-  --h2-font-size: 36px;
-  --header-font-weight: 900;
-  --subheader-font-size: 18px;
-  --subheader-font-weight: 300;
 
-  --container-width: 1128px;
+  --font-size-subheaders: 1.125rem; /* 18px */
+  --font-size-body: 1.25rem; /* 20px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h1: 3rem; /* 48px */
+
+  --font-weight-headers: 900;
+  --font-weight-subheaders: 300;
+
+  --line-height-subheaders: 1.778; /* 1.778 * 18px = 32px */
+  --line-height-body: 1.6; /* 1.6 * 20px = 32px */
+
+  /* 1.25 * 32px = 40px -- need 0.5rem (8 extra px) to make 1.5 lines */
+  --line-height-h2: 1.25;
+
+  /* 1.125 * 48px = 54px -- need 0.625rem (10 extra px) to make 2 lines */
+  --line-height-h1: 1.125;
+
+  --margin-h1: var(--space-stack-l);
+  --margin-h2: var(--space-stack-m);
+  --margin-p: var(--space-stack-m);
+  --margin-img: var(--space-stack-m);
+
+  --padding-h1: calc(var(--space-offset-default) + 0.625rem);
+  --padding-h2: calc(var(--space-offset-default) + 0.5rem);
+  --padding-p: var(--space-offset-default);
+  --padding-img: var(--space-offset-default);
+}
+
+:root {
+  --container-max-width: 1128px;
   --min-title-card-height: 660px;
 }
 
+/* Force body to take up 100% of vertical display (this is not the default)
+
+   One thing that is useful to do is force your HTML to take up 100% of the "height" of your browser window (say, to make sure a footer is at the bottom of the page when there is no content in your article).
+
+   There is (to my knowledge) no consensus for a best way to do this. I find this works for me most of the time without introducing issues.
+*/
+html,
+body {
+  height: 100%;
+}
+
+/* This is an aggressive univeral reset, inspired by the Meyer Reset 
+   https://meyerweb.com/eric/tools/css/reset/ 
+
+   This set of rules sets sane defaults for font behavior. It also resets all browser default box model properties -- a consequence is that you must add padding/border/margin to every element. I think it's nice, because it forces you to think about what elements you're using and why.
+*/
 * {
   margin: 0;
   padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
+/*
+   Universal Box Sizing best practise, for max flexibility and :pseudo support.
+
+   See https://css-tricks.com/box-sizing/ for a full explanation.
+
+   TL;DR: This setting makes all elements inherit their box-sizing property from their ancestor. That means we have to set the box-sizing property on either the body element for this to be useful. And it is useful -- it helps with decoupling the size of your component elements (margin/border/padding) from your overall layout.
+
+*/
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
-/* Inspiration: https://andy-bell.co.uk/a-modern-css-reset/ */
+/* From the Meyer Reset: 
+   HTML5 display-role reset for older browsers 
+
+   That is, older browsers do not universally treat these elements as "block"
+   It is also a helpful reminder for you that you should consider structural HTML elements display: block by default in your layout (you can overwrite these elements individually with display: flex or display: grid if your layout demands it)
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Inspiration: https://andy-bell.co.uk/a-modern-css-reset/ 
+
+   To make navigation bars, we are often reseting the default list style (so list items do not have dots or numbering)
+
+   However, in body/article/section text, it is often useful to keep the default list-style (you'll often just end up re-introducing the default by CSS)
+
+   Rather than reset ALL list styles, we can keep the nice browser defaults and only reset lists that we mark with the "role" attribute in our markup (e.g. nav lists)
+*/
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
 }
 
-html {
-  font-size: var(--body-font-size);
-}
+/*
+   All of our webpage content lies in the body. Font, color, and box-sizing (see above) properties are inherited by descendent elements.
 
+   That means we can define the "body" typographic settings just once and have defined defaults for all elements.
+*/
 body {
+  box-sizing: border-box;
+  font-size: var(--font-size-body);
   font-family: var(--font-family-body);
   color: var(--primary-dark);
-  line-height: 1.5;
-  box-sizing: border-box;
+  line-height: var(--line-height-body);
   text-align: left;
 }
 
-img {
+/* Make img, picture, and video easier to work with 
+   https://andy-bell.co.uk/a-modern-css-reset/
+
+   Some HTML content elements are NOT responsive by default. This is because they are in-line elements, and therefore only take the width/height of their content box independent of the size of their parent container.
+
+   Setting max-width and display: block; allows img/picture/video content to scale with the size of the display without stretching.
+*/
+img,
+picture,
+video {
   max-width: 100%;
+  display: block;
+
+  /* 
+    I recommend you use max-width instead of width.
+    width 100% forces the image to grow as its parent grows.
+    Images smaller than their container will stretch and pixelate. 
+  */
 }
 
-h1, h2, h3 {
-  margin: 0 0 1rem 0;
+/* Some sample Typographic settings, using the :root custom properties.
+
+   These settings will vary by project
+*/
+
+h1,
+h2,
+h3 {
   font-family: var(--font-family-headers);
-  font-weight: var(--header-font-weight);
+  font-weight: var(--font-weight-headers);
 }
 
 h1 {
-  font-size: var(--h1-font-size);
-  line-height: 1.1666;
+  margin: var(--margin-h1);
+  padding: var(--padding-h1);
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
 }
 
 h2 {
-  font-size: var(--h2-font-size);
-  line-height: 1.5556;
+  margin: var(--margin-h2);
+  padding: var(--padding-h2);
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
 }
 
 p {
-  margin: 1rem 0 2rem;
+  margin: var(--margin-p);
+}
+
+img {
+  margin: var(--margin-img);
+  padding: var(--padding-img);
+  align-self: center;
 }
 
 .container {
-  max-width: var(--container-width);
+  /* No media query required: content will be centered without stretching at all device widths by setting max-width (pixels) */
+  max-width: var(--container-max-width);
+
+  /* Center and pad to make sure that content does not hug the wall */
   margin: 0 auto;
-  padding: 1em;
-}
-
-.flex-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 3em;
-}
-
-.flex-two-column {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.flex-two-column > * {
-  max-width: 50%;
+  padding: var(--space-inset-m);
 }
 
 .card {
-  padding: 4em 0;
+  padding: var(--space-inset-xl) 0;
 }
 
-.hero {
+.section-1 {
   background-color: var(--primary-light);
   color: var(--primary-dark);
   text-align: center;
+
+  /* No risk of overflow: set miniumum height on a layout block (pixels) */
   min-height: var(--min-title-card-height);
 }
 
-.kero {
+.section-2 {
+  background-color: var(--primary-white);
+  color: var(--black);
+}
+
+.section-3 {
   background-color: var(--primary-dark);
   color: var(--white);
 }
 
-.lero {
+.section-4 {
   background-color: var(--primary-medium);
   color: var(--white);
 }
 
-.hero.card {
+.section-1.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.hero h1 {
+.section-1 h1 {
   color: var(--primary-medium);
 }
 
-.hero span {
-  font-size: var(--subheader-font-size);
-  font-weight: var(--subheader-font-weight);
+.section-1 span {
+  font-size: var(--font-size-subheaders);
+  font-weight: var(--font-weight-subheaders);
+  line-height: var(--line-height-subheaders);
   text-transform: uppercase;
   letter-spacing: 0.5em;
 }
 
-.jero h2 {
+.section-2 h2 {
   color: var(--primary-medium);
-  text-align: center;
 }
 
-.kero h2 {
+.section-3 h2 {
   color: var(--primary-light);
 }
 
-.lero h2 {
+.section-4 h2 {
   color: var(--primary-light);
 }
 
+@media (width >= 45rem) {
+  .flex-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-inset-l);
+  }
+
+  .flex-row.two-column {
+    align-items: flex-start;
+  }
+  .flex-row.two-column > * {
+    max-width: 50%;
+  }
+
+  .section-2 h2 {
+    text-align: center;
+  }
+}
