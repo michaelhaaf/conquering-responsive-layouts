@@ -52,7 +52,7 @@
   --font-size-subheaders: 1.125rem; /* 18px */
   --font-size-body: 1.25rem; /* 20px */
   --font-size-h2: 2rem; /* 32px */
-  --font-size-h1: 3rem; /* 48px */
+  --font-size-h1: 5rem; /* 48px */
 
   --font-weight-headers: 900;
   --font-weight-subheaders: 300;
@@ -179,7 +179,7 @@ img,
 picture,
 video {
   max-width: 100%;
-  display: block;
+  display: inline-block;
 
   /* 
     I recommend you use max-width instead of width.
@@ -224,6 +224,35 @@ img {
   align-self: center;
 }
 
+.btn {
+  /* Button typography */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--body-font-size);
+  font-weight: var(--bold-font-weight);
+  background-color: var(--secondary-dark);
+  color: var(--white);
+  /* Button layout/reset */
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.5em 1em;
+  margin-left: 0.5em;
+}
+
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.logo {
+  align-self: center;
+}
+
 .container {
   /* No media query required: content will be centered without stretching at all device widths by setting max-width (pixels) */
   max-width: var(--container-max-width);
@@ -237,10 +266,15 @@ img {
   padding: var(--space-inset-xl) 0;
 }
 
-.section-1 {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
+.page-header {
+  background-color: var(--primary-dark);
+  color: var(--white);
   text-align: center;
+}
+
+.section-1 {
+  background-color: var(--primary-medium);
+  color: var(--white);
 
   /* No risk of overflow: set miniumum height on a layout block (pixels) */
   min-height: var(--min-title-card-height);
@@ -267,16 +301,16 @@ img {
   justify-content: center;
 }
 
-.section-1 h1 {
-  color: var(--primary-medium);
+.section-1 h1 > em {
+  color: var(--secondary-dark);
 }
 
-.section-1 span {
-  font-size: var(--font-size-subheaders);
-  font-weight: var(--font-weight-subheaders);
-  line-height: var(--line-height-subheaders);
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
+.section-1 :is(button, h1) {
+  margin: 0;
+}
+
+.section-1 .col {
+  align-self: flex-end;
 }
 
 .section-2 h2 {
@@ -291,7 +325,90 @@ img {
   color: var(--primary-light);
 }
 
+.page-header img {
+  margin: 0;
+  padding: 0;
+}
+
+.page-nav-toggle {
+  cursor: pointer;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: var(--primary-medium);
+  color: var(--white);
+  transition: opacity 250ms ease;
+  position: absolute;
+  left: var(--space-inset-m);
+}
+
+.page-nav {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+}
+
+.page-nav--visible {
+  visibility: visible;
+  height: auto;
+  position: relative;
+}
+
+.page-nav a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-headers);
+  color: var(--white);
+}
+
+.hamburger {
+  width: 50%;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 100%;
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(3px);
+}
+
 @media (width >= 45rem) {
+
+  .page-nav-toggle {
+    display: none;
+  }
+
+  .page-nav {
+    visibility: visible;
+    display: flex;
+    height: auto;
+    position: initial;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .page-nav  ul {
+    display: flex;
+  }
+
   .flex-row {
     display: flex;
     justify-content: space-between;
@@ -305,7 +422,4 @@ img {
     max-width: 50%;
   }
 
-  .section-2 h2 {
-    text-align: center;
-  }
 }

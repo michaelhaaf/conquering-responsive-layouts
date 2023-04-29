@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Challenge 7 (with extras)</title>
+    <title>Challenge 10</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <script src="http://files.keyes.ie/things/baseliner/baseliner-latest.min.js"></script>
     <script>
-      window.onload = function () {
-        baseliner = new Baseliner({gridColor: 'red'});
-      };
+      <!-- window.onload = function () { -->
+      <!--   baseliner = new Baseliner({gridColor: 'red'}); -->
+      <!-- }; -->
+      <!---->
     </script>
   </head>
   <body>
+    <header class="page-header">
+      <div class="container flex-row">
+        <button class="page-nav-toggle" aria-label="open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <a class="logo" href="#">
+          <img src="assets/logo.svg" alt="Conquering Responsive Layouts" />
+        </a>
+        <nav class="page-nav">
+          <ul role="list">
+            <li><a href="#" class="">Home</a></li>
+            <li><a href="#" class="">About</a></li>
+            <li><a href="#" class="">Contact</a></li>
+          </ul>
+          <ul role="list">
+            <li><a href="#" class="">Sign In</a></li>
+            <li><a href="#" class="btn">Sign Up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <section class="section-1 card">
-      <div class="container">
-        <span>Lorem Ipsum Sit</span>
-        <h1>Responsive layouts don't have to be a struggle</h1>
+      <div class="container flex-row two-column">
+        <h1>Responsive layouts <em>don't have to be a struggle</em></h1>
+        <div class="col">
+          <p>
+            Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
+            cillum sint consectetur cupidatat.
+          </p>
+          <button type="" class="btn">I Want to Learn</button>
+        </div>
       </div>
     </section>
     <section class="section-2 card">
@@ -96,5 +125,6 @@
         </div>
       </div>
     </section>
+    <script src="main.js" defer></script>
   </body>
 </html>
