@@ -8,27 +8,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@700&display=swap"
       rel="stylesheet"
     />
     <script src="http://files.keyes.ie/things/baseliner/baseliner-latest.min.js"></script>
-    <script>
-      <!-- window.onload = function () { -->
-      <!--   baseliner = new Baseliner({gridColor: 'red'}); -->
-      <!-- }; -->
-      <!---->
-    </script>
   </head>
-  <body>
+  <body class="body-container">
     <header class="page-header">
-      <div class="container flex-row">
-        <button class="page-nav-toggle" aria-label="open navigation">
+      <div class="container tablet flex-container">
+        <button class="toggle" aria-label="open navigation">
           <span class="hamburger"></span>
         </button>
         <a class="logo" href="#">
           <img src="assets/logo.svg" alt="Conquering Responsive Layouts" />
         </a>
-        <nav class="page-nav">
+        <nav class="nav page-nav">
           <ul role="list">
             <li><a href="#" class="">Home</a></li>
             <li><a href="#" class="">About</a></li>
@@ -42,89 +36,197 @@
       </div>
     </header>
     <section class="section-1 card">
-      <div class="container flex-row two-column">
+      <div class="container tablet flex-container two-column">
         <h1>Responsive layouts <em>don't have to be a struggle</em></h1>
-        <div class="col">
+        <div class="">
           <p>
-            Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
-            cillum sint consectetur cupidatat.
+            But they will be at first. The development of good technique takes
+            both knowledge and practise. In this manner, user interface design
+            is no different than any other science.
+          </p>
+          <p>
+            Once you have learned some things about them,
+            <em>responsive layouts</em> are actually quite pleasant to make
+            (and, of course, to use).
+          </p>
+          <p>
+            Over the years, HTML5 and CSS have matured into very capable
+            languages for creating and styling web interfaces. You should
+            (hopefully) feel at the end of this course the ability to express
+            (at least approximately) any web layout you can see or imagine.
           </p>
           <button type="" class="btn">I Want to Learn</button>
+          <p>
+            Sadly, the button above can't help you. Inspecting the source code
+            of this document, hopefully, can.
+          </p>
+          <p>
+            I have tried to summarize everything we have learned (and some
+            extra) about HTML and CSS best practises into the design and
+            documentation of this page. Inspect the elements, read the comments,
+            and feel free to re-use this code in your future projects. Let me
+            know if you have any questions!
+          </p>
         </div>
       </div>
     </section>
     <section class="section-2 card">
-      <div class="container">
-        <h2>Quality Designs</h2>
-        <div class="flex-row two-column">
+      <div class="container tablet flex-container three-column">
+        <div class="flex-container">
+          <h2>Mobile-first</h2>
           <p>
-            Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-            reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
-            ex esse exercitation amet. Nisi anim cupidatat excepteur officia.
-            Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-            voluptate dolor minim nulla est proident. Nostrud officia pariatur
-            ut officia. Sit irure elit esse ea nulla sunt ex occaecat
-            reprehenderit commodo officia dolor Lorem duis laboris cupidatat
-            officia voluptate. Culpa proident adipisicing id nulla nisi laboris
-            ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo
-            ex non excepteur duis sunt velit enim. Voluptate laboris sint
-            cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+            Mobile layouts are typically <em>single-column</em>, perfectly
+            suited to the block stacking nature of <em>unstyled HTML</em>.
+            Mobile-first designs force the developer to emphasize coherent
+            structure and markup.
           </p>
           <p>
-            Felis donec et odio pellentesque diam volutpat. Aliquam purus sit
-            amet luctus venenatis. Turpis in eu mi bibendum neque egestas congue
-            quisque egestas. Pellentesque sit amet porttitor eget dolor morbi
-            non. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui
-            vivamus arcu felis bibendum ut tristique. Arcu dui vivamus arcu
-            felis. Sociis natoque penatibus et magnis dis.
+            Inspect this page in a mobile layout, both with and without page
+            style. Then, view the source CSS. What, if anything, does the CSS
+            add to the layout of this page?
+          </p>
+        </div>
+        <div class="">
+          <h2>Responsive</h2>
+          <p>
+            Responsive web designs have
+            <em>well-defined layouts for each device</em> used to browse the
+            page. Tablet and Destkop layouts are often composed of many columns
+            to take advantage of wider viewport space.
+          </p>
+          <p>
+            Use responsive mode in your browser's developer tools to inspect
+            this page at a variety of widths. How does the overall layout change
+            at each breakpoint? How are the styles of some components changed?
+          </p>
+        </div>
+        <div class="">
+          <h2>Accessible</h2>
+          <p>
+            Good web design is synonymous with accessible web design. The point
+            of a webpage is to share content; inaccessible content cannot be
+            shared. Take care to ensure <em>keyboard</em>, <em>color</em>, etc.
+          </p>
+          <p>
+            Use the accessibility auditing tool to inspect these properties on
+            this page. What has been done well? What has room for improvement?
           </p>
         </div>
       </div>
     </section>
     <section class="section-3 card">
-      <div class="container">
-        <div class="flex-row two-column">
-          <div>
-            <h2>Made custom for you</h2>
+      <div class="container desktop flex-container two-column">
+        <div class="">
+          <h1>It really doesn't have to be so hard</h1>
+          <p>
+            With practise, you will obtain <em>genuine fluency</em> in
+            expressing aesthetic and responsive interfaces using the modern
+            tools of the trade.
+          </p>
+          <img src="assets/the-image.jpg" alt="" />
+          <p></p>
+        </div>
+        <div class="sidebar tablet flex-container">
+          <div class="card-s">
+            <h2>Break it down</h2>
             <p>
-              Lorem ipsum dolor sit amet, officia excepteur ex fugiat
-              reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
-              ex esse exercitation amet. Nisi anim cupidatat excepteur officia.
-              Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet
-              voluptate voluptate dolor minim nulla est proident. Nostrud
-              officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex
-              occaecat reprehenderit commodo officia dolor Lorem duis laboris
-              cupidatat officia voluptate. Culpa proident adipisicing id nulla
-              nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua
-              reprehenderit commodo ex non excepteur duis sunt velit enim.
-              Voluptate laboris sint cupidatat ullamco ut ea consectetur et est
-              culpa et culpa duis.
+              Not unlike lego, HTML structural elements are <em>blocks</em> by
+              default. Each element is a unit on its own that, when combined
+              with other elements, comprises a greater whole.
+            </p>
+            <p>
+              When designing, ask yourself: what IS each element on my page?
+              What are its constraints? How does it relate to the elements
+              around it?
+            </p>
+            <p>
+              Also: there's no need to be so serious all the time. It's okay to
+              make mistakes. The important things it to make stuff so that you
+              can learn how it works.
             </p>
           </div>
-          <img src="./assets/the-image.jpg" alt="" />
+
+          <div class="card-s">
+            <h2>Work your way up</h2>
+            <p>
+              Not unlike cooking, CSS styles are <em>recipes</em> for combining
+              and transforming ingredients into a finished <s>meal</s> website.
+            </p>
+            <p>
+              When <s>cooking</s> adding css, ask yourself: Placing temporary
+              <em>borders</em> around elements in your CSS both a great
+              debugging tool (to see how an element is flowing in your document)
+              as well as great practise (at refining your choice of CSS
+              selectors).
+            </p>
+          </div>
+          <div class="card-s">
+            <h2>~*~</h2>
+            <p>
+              Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
+              sint cillum sint consectetur cupidatat.
+            </p>
+          </div>
         </div>
       </div>
     </section>
-    <section class="section-4 card">
+    <footer class="page-footer card">
       <div class="container">
-        <div class="flex-row two-column">
-          <img src="./assets/the-image.jpg" alt="" />
-          <div>
-            <h2>Created with care</h2>
+        <h1>just scratching the surface</h1>
+        <div class="tablet grid-container">
+          <div class="nav grid-col-a">
+            <h2>About our company</h2>
             <p>
-              Felis donec et odio pellentesque diam volutpat. Aliquam purus sit
-              amet luctus venenatis. Turpis in eu mi bibendum neque egestas
-              congue quisque egestas. Pellentesque sit amet porttitor eget dolor
-              morbi non. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Dui vivamus arcu felis bibendum ut tristique. Arcu dui
-              vivamus arcu felis. Sociis natoque penatibus et magnis dis.
+              The less you eat, drink and buy books; the less you go to the
+              theatre, the dance hall, the public house; the less you think,
+              love, theorise, sing, paint, fence, etc., the more you save
+              &mdash; the greater becomes your treasure which neither moths nor
+              rust will devour &mdash; your capital. The less you are, the less
+              you express your own life, the more you have, i.e., the greater is
+              your alienated life, the greater is the store of your estranged
+              being. Everything taken from you in life and in humanity, is
+              replaced for you in money and in wealth; and all the things which
+              you cannot do, your money can do. It can eat and, drink, go to the
+              dance hall and the theatre; it can travel, it can appropriate art,
+              learning, the treasures of the past, political power &mdash; all
+              this it can appropriate for you &mdash; it can buy all this: it is
+              true endowment. Yet being all this, it wants to do nothing but
+              create itself, buy itself; for everything else is after all its
+              servant, and when I have the master I have the servant and do not
+              need his servant. All passions and all activity must therefore be
+              submerged in avarice. The worker may only have enough for him to
+              want to live, and may only want to live in order to have that.
             </p>
+          </div>
+          <nav class="nav footer-nav grid-col-b">
+            <h2>Getting around</h2>
+            <ul role="list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="nav footer-nav grid-col-c">
+            <h2>Other things</h2>
+            <ul role="list">
+              <li><a href="#">Lorem ipsum</a></li>
+              <li><a href="#">dolor</a></li>
+              <li><a href="#">sit amet</a></li>
+              <li><a href="#">consectetur</a></li>
+            </ul>
+          </div>
+          <div class="nav footer-nav grid-col-d">
+            <h2>And more</h2>
+            <ul role="list">
+              <li><a href="#">Sometimes</a></li>
+              <li><a href="#">footers</a></li>
+              <li><a href="#">are</a></li>
+              <li><a href="#">like this</a></li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
     <script src="main.js" defer></script>
   </body>
 </html>
