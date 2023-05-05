@@ -40,9 +40,9 @@
         <h1>Responsive layouts <em>don't have to be a struggle</em></h1>
         <div class="">
           <p>
-            But they will be at first. The development of good technique takes
-            both knowledge and practise. In this manner, user interface design
-            is no different than any other science.
+            But they will be at first. Developing good technique in any field
+            takes knowledge and practise. In this, user interface design is no
+            different than any other science.
           </p>
           <p>
             Once you have learned some things about them,
@@ -58,14 +58,17 @@
           <button type="" class="btn">I Want to Learn</button>
           <p>
             Sadly, the button above can't help you. Inspecting the source code
-            of this document, hopefully, can.
+            of this document, however, can.
           </p>
           <p>
             I have tried to summarize everything we have learned (and some
-            extra) about HTML and CSS best practises into the design and
-            documentation of this page. Inspect the elements, read the comments,
-            and feel free to re-use this code in your future projects. Let me
-            know if you have any questions!
+            extras) about HTML and CSS best practises into the design and
+            documentation of this page.
+            <em
+              >Inspect the elements, read the comments, and feel free to re-use
+              this code in your future projects.</em
+            >
+            Let me know if you have any questions!
           </p>
         </div>
       </div>
@@ -103,9 +106,14 @@
         <div class="">
           <h2>Accessible</h2>
           <p>
-            Good web design is synonymous with accessible web design. The point
-            of a webpage is to share content; inaccessible content cannot be
-            shared. Take care to ensure <em>keyboard</em>, <em>color</em>, etc.
+            Accessible design ensures that websites are usable by as many people
+            as possible.
+            <em
+              >Page semantics, colour contrast, keyboard interactivity, network
+              speed, and device capability</em
+            >
+            are just some properties that developers should have in mind when
+            designing websites.
           </p>
           <p>
             Use the accessibility auditing tool to inspect these properties on
@@ -123,10 +131,78 @@
             expressing aesthetic and responsive interfaces using the modern
             tools of the trade.
           </p>
+          <p>
+            Remember that when you are developing websites, or any programs,
+            <em>you are not the only person who uses them.</em> In fact, if you
+            are successful in this field, your code and your projects will be
+            used and read many orders of magnitude more times than the amount of
+            time you spend creating them.
+          </p>
+
           <img src="assets/the-image.jpg" alt="" />
-          <p></p>
+
+          <p>
+            Importantly, accessibility also means understanding that there are
+            many other kinds of users who have accessibility needs.
+          </p>
+
+          <p>
+            Instead of designing for your own use, then patching until you
+            achieve semi-functionality for anyone else, a wise developer places
+            themselves into the shoes of the person they’re designing for and
+            builds something which speaks their design language. For visually
+            impaired users, this might mean laying out information in a more
+            logical sense than in a spatial sense.
+          </p>
+
+          <p>
+            For instance, consider someone who cannot afford a computer as nice
+            as the one you are using. A website with a huge JavaScript bundle,
+            unoptimized images, and always-on network requirements is not
+            accessible to users who are on low-bandwidth mobile connections or
+            those that have a data cap — you’re essentially charging poorer
+            users a tax to use your website.
+          </p>
+          <p>
+            Localization is another kind of accessibility, Users in different
+            locales speak not only different natural languages, but different
+            design languages. Users of right-to-left languages like Arabic don’t
+            just reverse their strings but also the entire layout of the page.
+            Chinese and Japanese users are more familiar with denser UIs than
+            the typical Western user. And subtitles and transcripts are
+            important for Deaf users, but also useful for users who are
+            consuming your content in a second language.
+          </p>
+          <p>
+            Intuitiveness is another important detail. Not everyone understands
+            what your icons mean, for a start. They may not have the motor skill
+            to hold their mouse over the button and read the tool-tip, either,
+            and might not know that they can do that in the first place!
+            Reliance on unfamiliar design language in general is a kind of
+            inaccessible design. Flashing banner ads are also inaccessible for
+            users with ADHD, and if we’re being honest, for everyone else, too.
+            Software which is not responsive on many kinds of devices (touch,
+            mouse and keyboard, different screen sizes, aspect ratios,
+            orientations) is not accessible.
+          </p>
+          <p>
+            Adequate answers to these problems are **relatively easy to achieve
+            if we use the tools made available to us well.** We do not have to
+            copy the anti-patterns of social-media monsters like Facebook,
+            Twitter, Instagram, and the rest. Designs which are deliberately
+            addictive are not accessible.
+          </p>
+          <p>
+            It is a fool’s errand to aim for perfect accessibility for all
+            users, but we need to understand that our design choices are
+            excluding people from using our tools. We need to design our
+            software with accessibility in mind from the ground up, and with a
+            broad understanding of accessibility that acknowledges that simple,
+            intuitive software is the foundation of accessibility which works
+            for everyone, including you and me — and not retroactively adding
+            half-assed tools to fundamentally unusable software. </p>
         </div>
-        <div class="sidebar tablet flex-container">
+        <div class="sidebar tablet desktop flex-container three-column">
           <div class="card-s">
             <h2>Break it down</h2>
             <p>
@@ -139,11 +215,6 @@
               What are its constraints? How does it relate to the elements
               around it?
             </p>
-            <p>
-              Also: there's no need to be so serious all the time. It's okay to
-              make mistakes. The important things it to make stuff so that you
-              can learn how it works.
-            </p>
           </div>
 
           <div class="card-s">
@@ -153,18 +224,23 @@
               and transforming ingredients into a finished <s>meal</s> website.
             </p>
             <p>
-              When <s>cooking</s> adding css, ask yourself: Placing temporary
-              <em>borders</em> around elements in your CSS both a great
-              debugging tool (to see how an element is flowing in your document)
-              as well as great practise (at refining your choice of CSS
-              selectors).
+              When <s>cooking</s> adding css, ask yourself: does this style help
+              fulfill a requirement of my project? Try to avoid band-aid
+              solutions.
             </p>
           </div>
           <div class="card-s">
             <h2>~*~</h2>
             <p>
-              Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
-              sint cillum sint consectetur cupidatat.
+              Not unlike any other programming language, it's helpful to debug
+              as you develop. Temporary <em>borders</em> around elements in your
+              CSS can help visualize how that element is flowing in your
+              document.
+            </p>
+            <p>
+              Finally: there's no need to be so serious all the time. It's okay
+              to make mistakes. The important things it to make stuff so that
+              you can learn how it works.
             </p>
           </div>
         </div>
@@ -207,7 +283,7 @@
             </ul>
           </nav>
           <div class="nav footer-nav grid-col-c">
-            <h2>Other things</h2>
+            <h2>External Resources</h2>
             <ul role="list">
               <li><a href="#">Lorem ipsum</a></li>
               <li><a href="#">dolor</a></li>

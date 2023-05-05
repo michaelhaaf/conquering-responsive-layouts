@@ -376,10 +376,14 @@ button {
   -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  transition: all 0.3s ease-in;
+  max-height: 18rem;
 }
 
 .grid-col-a:hover {
-  display: initial;
+  -webkit-line-clamp: 40;
+  max-height: 100%
 }
 
 .grid-col-b {
@@ -496,7 +500,6 @@ body > div {
   margin: 0 !important;
 }
 
-
 @media (width >= 45rem) {
 
   .toggle {
@@ -556,9 +559,8 @@ body > div {
     align-self: flex-end;
   }
 
-  .section-2 .three-column > *,
-  .section-3 .three-column > * {
-    max-width: 33%;
+  .tablet.three-column > * {
+    width: 33%;
   }
 
   .section-3 h2 {
@@ -580,6 +582,10 @@ body > div {
     justify-content: space-between;
     align-items: center;
     gap: var(--space-xl);
+  }
+
+  .desktop.three-column > * {
+    width: 100%;
   }
 
   .section-3 .two-column > :first-child {
