@@ -3,6 +3,7 @@
   <head>
     <title>Challenge 10</title>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,10 +38,10 @@
     </header>
     <section class="section-1 card">
       <div class="container tablet flex-container two-column">
-        <h1>Responsive layouts <em>don't have to be a struggle</em></h1>
+        <h1>Responsive layouts <em>don't have to be a struggle...</em></h1>
         <div class="">
           <p>
-            But they will be at first. In any skill, hobby, or profession,
+            ... but they will be at first. In any skill, hobby, or profession,
             developing good technique takes knowledge and practise.
           </p>
           <p>
@@ -60,16 +61,29 @@
             of this document, however, can.
           </p>
           <p>
-            I have tried to summarize everything we have learned (and some
-            things we haven't) about HTML and CSS best practises into the design
-            and documentation of this page.
+            I have tried to summarize what we have learned (and some things we
+            haven't) about HTML and CSS best practises into the design and
+            documentation of this page.
           </p>
 
           <p>
-            Inspect the elements, read the comments, and feel free to re-use
-            this code in your future projects. Let me know if you have any
-            questions!
+            Inspect the elements, read the source code comments, and feel free
+            to re-use this code in your future projects. Let me know if you have
+            any questions!
           </p>
+          <footer>
+            <span class="stack-0-margin font-xs"
+              >Content and code written by Michael Haaf &copy;2023</span
+            >
+            <span class="stack-0-margin font-xs"
+              >Adapted from the final project template for the
+              <a
+                href="https://courses.kevinpowell.co/conquering-responsive-layouts"
+                >Conquering Responsive Layouts</a
+              >
+              course by Kevin Powell.</span
+            >
+          </footer>
         </div>
       </div>
     </section>
@@ -77,7 +91,7 @@
       <div class="container tablet flex-container three-column">
         <div class="flex-container">
           <h2>Mobile-first</h2>
-          <p>
+          <p class="hover-expand">
             Mobile layouts are typically <em>single-column</em>, perfectly
             suited to the block stacking nature of <em>unstyled HTML</em>.
             Mobile-first designs force the developer to emphasize coherent
@@ -85,27 +99,37 @@
           </p>
           <p>
             Inspect this page in a mobile layout, both with and without page
-            style. Then, view the source CSS. What, if anything, does the CSS
-            add to the layout of this page?
+            style. Then,
+            <a
+              href="https://technocript.com/how-to-see-and-extract-css-of-a-website/#How-to-See-CSS-of-a-Website"
+              >view the source CSS</a
+            >
+            for this website. What, if anything, does the CSS add to the layout
+            of this page?
           </p>
         </div>
         <div class="">
           <h2>Responsive</h2>
-          <p>
+          <p class="hover-expand">
             Responsive web designs have
             <em>well-defined layouts for each device</em> used to browse the
             page. Tablet and Destkop layouts are often composed of many columns
             to take advantage of wider viewport space.
           </p>
           <p>
-            Use responsive mode in your browser's developer tools to inspect
-            this page at a variety of widths. How does the overall layout change
-            at each breakpoint? How are the styles of some components changed?
+            Use
+            <a
+              href="https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html"
+              >responsive mode</a
+            >
+            in your browser's developer tools to inspect this page at a variety
+            of widths. How does the overall layout change at each breakpoint?
+            How are the styles of some components changed?
           </p>
         </div>
         <div class="">
           <h2>Accessible</h2>
-          <p>
+          <p class="hover-expand">
             Accessible design ensures that websites are usable by as many people
             as possible.
             <em
@@ -116,8 +140,13 @@
             designing websites.
           </p>
           <p>
-            Use the accessibility auditing tool to inspect these properties on
-            this page. What has been done well? What has room for improvement?
+            Use the
+            <a
+              href="https://developer.chrome.com/docs/devtools/accessibility/reference/#pane"
+              >accessibility auditing tool</a
+            >
+            to inspect these properties on this page. What has been done well?
+            What has room for improvement?
           </p>
         </div>
       </div>
@@ -135,77 +164,37 @@
             Remember that when you are developing websites, or any programs,
             <em>you are not the only person who uses them.</em> In fact, if you
             are successful in this field, your code and your projects will be
-            used and read many orders of magnitude more times than the amount of
-            time you spend creating them.
+            used and read by others many
+            <a href="https://en.wikipedia.org/wiki/Order_of_magnitude"
+              >orders of magnitude</a
+            >
+            more than the amount of time spent creating them.
           </p>
 
-          <img src="assets/the-image.jpg" alt="" />
-
+          <figure>
+            <img
+              src="assets/the-image.jpg"
+              alt="three drawings of common website layouts"
+            />
+            <figcaption>
+              Many websites have common requirements for how content should be
+              displayed. Learning design
+              <a href="https://web.dev/patterns/layout/">patterns</a> can help
+              create and modify website layouts systematically.
+            </figcaption>
+          </figure>
           <p>
-            Importantly, accessibility also means understanding that there are
-            many other kinds of users who have accessibility needs.
+            While the content of your websites and your projects is of course
+            important, the accessibility of your website is the key factor that
+            determines whether that content can be used and understood by
+            others. Therefore, it is important to understand the main obstactles
+            to accessibility in user interface design.
           </p>
-
-          <p>
-            Instead of designing for your own use, then patching until you
-            achieve semi-functionality for anyone else, a wise developer places
-            themselves into the shoes of the person they’re designing for and
-            builds something which speaks their design language. For visually
-            impaired users, this might mean laying out information in a more
-            logical sense than in a spatial sense.
-          </p>
-
-          <p>
-            For instance, consider someone who cannot afford a computer as nice
-            as the one you are using. A website with a huge JavaScript bundle,
-            unoptimized images, and always-on network requirements is not
-            accessible to users who are on low-bandwidth mobile connections or
-            those that have a data cap — you’re essentially charging poorer
-            users a tax to use your website.
-          </p>
-          <p>
-            Localization is another kind of accessibility, Users in different
-            locales speak not only different natural languages, but different
-            design languages. Users of right-to-left languages like Arabic don’t
-            just reverse their strings but also the entire layout of the page.
-            Chinese and Japanese users are more familiar with denser UIs than
-            the typical Western user. And subtitles and transcripts are
-            important for Deaf users, but also useful for users who are
-            consuming your content in a second language.
-          </p>
-          <p>
-            Intuitiveness is another important detail. Not everyone understands
-            what your icons mean, for a start. They may not have the motor skill
-            to hold their mouse over the button and read the tool-tip, either,
-            and might not know that they can do that in the first place!
-            Reliance on unfamiliar design language in general is a kind of
-            inaccessible design. Flashing banner ads are also inaccessible for
-            users with ADHD, and if we’re being honest, for everyone else, too.
-            Software which is not responsive on many kinds of devices (touch,
-            mouse and keyboard, different screen sizes, aspect ratios,
-            orientations) is not accessible.
-          </p>
-          <p>
-            Adequate answers to these problems are **relatively easy to achieve
-            if we use the tools made available to us well.** We do not have to
-            copy the anti-patterns of social-media monsters like Facebook,
-            Twitter, Instagram, and the rest. Designs which are deliberately
-            addictive are not accessible.
-          </p>
-          <p>
-            It is a fool’s errand to aim for perfect accessibility for all
-            users, but we need to understand that our design choices are
-            excluding people from using our tools. We need to design our
-            software with accessibility in mind from the ground up, and with a
-            broad understanding of accessibility that acknowledges that simple,
-            intuitive software is the foundation of accessibility which works
-            for everyone, including you and me — and not retroactively adding
-            half-assed tools to fundamentally unusable software. </p>
         </div>
         <div class="sidebar tablet desktop flex-container three-column">
           <div class="card-s">
             <h2>Break it down</h2>
-            <p>
+            <p class="hover-expand">
               Not unlike lego, HTML structural elements are <em>blocks</em> by
               default. Each element is a unit on its own that, when combined
               with other elements, comprises a greater whole.
@@ -219,7 +208,7 @@
 
           <div class="card-s">
             <h2>Work your way up</h2>
-            <p>
+            <p class="hover-expand">
               Not unlike cooking, CSS styles are <em>recipes</em> for combining
               and transforming ingredients into a finished <s>meal</s> website.
             </p>
@@ -231,16 +220,16 @@
           </div>
           <div class="card-s">
             <h2>~*~</h2>
-            <p>
+            <p class="hover-expand">
               Not unlike any other programming language, it's helpful to debug
               as you develop. Temporary <em>borders</em> around elements in your
-              CSS can help visualize how that element is flowing in your
-              document.
+              CSS is one way to help visualize how that element is flowing in
+              your document.
             </p>
             <p>
               Finally: there's no need to be so serious all the time. It's okay
-              to make mistakes. The important things it to make stuff so that
-              you can learn how it works.
+              to make mistakes. The important things it to just make stuff so
+              that you can learn how it works.
             </p>
           </div>
         </div>
@@ -250,30 +239,6 @@
       <div class="container">
         <h1>just scratching the surface</h1>
         <div class="tablet grid-container">
-          <div class="nav grid-col-a">
-            <h2>About our company</h2>
-            <p>
-              The less you eat, drink and buy books; the less you go to the
-              theatre, the dance hall, the public house; the less you think,
-              love, theorise, sing, paint, fence, etc., the more you save
-              &mdash; the greater becomes your treasure which neither moths nor
-              rust will devour &mdash; your capital. The less you are, the less
-              you express your own life, the more you have, i.e., the greater is
-              your alienated life, the greater is the store of your estranged
-              being. Everything taken from you in life and in humanity, is
-              replaced for you in money and in wealth; and all the things which
-              you cannot do, your money can do. It can eat and, drink, go to the
-              dance hall and the theatre; it can travel, it can appropriate art,
-              learning, the treasures of the past, political power &mdash; all
-              this it can appropriate for you &mdash; it can buy all this: it is
-              true endowment. Yet being all this, it wants to do nothing but
-              create itself, buy itself; for everything else is after all its
-              servant, and when I have the master I have the servant and do not
-              need his servant. All passions and all activity must therefore be
-              submerged in avarice. The worker may only have enough for him to
-              want to live, and may only want to live in order to have that.
-            </p>
-          </div>
           <nav class="nav footer-nav grid-col-b">
             <h2>Getting around</h2>
             <ul role="list">
@@ -299,6 +264,86 @@
               <li><a href="#">are</a></li>
               <li><a href="#">like this</a></li>
             </ul>
+          </div>
+          <div class="grid-col-e">
+            <h2>Copyright</h2>
+            <span class="stack-0-margin font-xxs">
+              &copy;2023 Michael Haaf. Site content:
+              <a href="https://creativecommons.org/licenses/by/4.0/"
+                >CC-BY-4.0</a
+              >. Site
+              <a href="https://github.com/michaelhaaf/2W6-W23/blob/main/LICENSE"
+                >code</a
+              >:
+              <a
+                href="https://michaelhaaf.github.io/2W6-W23/pages/home.html#course-website"
+                >GNU GPL v3.0</a
+              >
+            </span>
+            <span class="stack-0-margin font-xxs">
+              Site design inspired by an assignment from
+              <a
+                href="https://courses.kevinpowell.co/conquering-responsive-layouts"
+                >Conquering Responsive Layouts</a
+              >. All page content (assets, code, styles, text) has been written
+              by the author and is not adapted from course material.
+            </span>
+            <p>
+              <a
+                class="license-logo"
+                rel="license"
+                href="https://www.gnu.org/licenses/gpl-3.0.html"
+                ><img
+                  alt="GNU General Public License V3"
+                  src="./assets/gpl-v3-logo.svg"
+              /></a>
+              <a
+                class="license-logo"
+                rel="license"
+                href="http://creativecommons.org/licenses/by/4.0/"
+                ><img
+                  alt="Creative Commons License"
+                  src="https://i.creativecommons.org/l/by/4.0/80x15.png"
+              /></a>
+            </p>
+          </div>
+          <div class="grid-col-a">
+            <h2>About our company</h2>
+            <p>
+              In fact, I am not a company, I am a man, and this website is more
+              about
+              <a href="https://michaelhaaf.github.io/2W6-W23/pages/home.html"
+                >learning how to develop a user interface</a
+              >
+              than it is about selling a product.
+            </p>
+            <p>
+              A career as a developer will require you to invest significant
+              amounts of time, both in your education as well as in your
+              profession.
+            </p>
+            <p class="hover-expand">With that being said...</p>
+            <p>
+              The less you eat, drink and buy books; the less you go to the
+              theatre, the dance hall, the public house; the less you think,
+              love, theorise, sing, paint, fence, etc., the more you save
+              &mdash; the greater becomes your treasure which neither moths nor
+              rust will devour &mdash; your capital. The less you are, the less
+              you express your own life, the more you have, i.e., the greater is
+              your alienated life, the greater is the store of your estranged
+              being. Everything taken from you in life and in humanity, is
+              replaced for you in money and in wealth; and all the things which
+              you cannot do, your money can do. It can eat and, drink, go to the
+              dance hall and the theatre; it can travel, it can appropriate art,
+              learning, the treasures of the past, political power &mdash; all
+              this it can appropriate for you &mdash; it can buy all this: it is
+              true endowment. Yet being all this, it wants to do nothing but
+              create itself, buy itself; for everything else is after all its
+              servant, and when I have the master I have the servant and do not
+              need his servant. All passions and all activity must therefore be
+              submerged in avarice. The worker may only have enough for him to
+              want to live, and may only want to live in order to have that.
+            </p>
           </div>
         </div>
       </div>

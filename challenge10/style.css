@@ -3,26 +3,35 @@
 \* ------------------------------------------ */
 
 /* 
+* Major style categories in this document are marked by '||' characters to ease finding related styles (using editor find searches, etc.) 
+* The major styles are also ordered (approximately) in order of least->most specific to the design (so that later rules overrite eariler ones in specificity ties)
+*
 * || Themes
-*   - colors, font definitions
+*   - color, font, layout specifications
 *
 * || Global
 *   - margin, padding, box-sizing
 *   - CSS resets, general styles
 *
 * || Typography
+*   - font and box model settings for content elements (h1-3, p, ul, ol, figure)
 *
 * || Utilities
+*   - re-usable style definitions for common actions (hidden, show, etc.)
 *
-* || Objects
+* || Components
+*   - re-usable style definitions for common components (buttons, navbars, etc.)
 *
 * || Containers
+*   - layout definitions for containing elements in our design (cards, flexboxes, grids)
 *
 * || Sections
+*   - style definitions for each section of the website
 *
 * || Overrides
+*   - style overrides for particular requirements, @media queries
 * 
-* || Acknowledgements:
+* Acknowledgements:
 *   Resources used in creating this design cited inline.
 * 
 *   Document structure inspired by: 
@@ -50,6 +59,7 @@
 :root {
   --font-family-body: "Montserrat", sans-serif;
   --font-family-headers: "Oswald", sans-serif;
+  --font-size-xxs: 0.875rem;    /* 14px */
   --font-size-xs: 1rem;         /* 16px */
   --font-size-s: 1.125rem;      /* 18px */
   --font-size-m: 1.25rem;       /* 20px */
@@ -58,6 +68,8 @@
   --font-size-xxl: 5rem;        /* 80px */
   --font-weight-headers: 700;
   --font-weight-subheaders: 300;
+  --line-height-rem: 2rem;
+  --line-height-xxs: 2.286;     /* 2.125 * 14px = 32px (1 line) */
   --line-height-xs: 2;          /* 2 * 16px = 32px (1 line) */
   --line-height-s: 1.778;       /* 1.778 * 18px = 32px (1 line) */
   --line-height-m: 1.6;         /* 1.6 * 20px = 32px (1 line) */
@@ -102,10 +114,10 @@
 
 /* Use space definitions to define layout spacing */
 :root {
-  --margin-img: var(--space-stack-m);
+  --margin-figure: var(--space-stack-m);
   --margin-text: var(--space-stack);
   --margin-text-xl: var(--space-stack-l);
-  --padding-img: var(--space-offset);
+  --padding-figure: var(--space-offset);
   --padding-text: var(--space-offset);
   --padding-text-l: calc(var(--space-offset) + 0.5rem);
   --padding-text-xl: calc(var(--space-offset) + 0.625rem);
@@ -173,6 +185,16 @@ ol[role="list"] {
   list-style: none;
 }
 
+
+/* 
+   This style will force hyperlinks to take the color of the body text. Useful when you do not have a theme color for hyperlinks definined in your requirements.
+   This style can be overwritten by more specific styles for different sections of your website later in this CSS file.
+*/
+a {
+  color: inherit;
+}
+
+
 /* 
    Some HTML content elements are NOT responsive by default. This is because they are in-line elements, and therefore only take the width/height of their content box independent of the size of their parent container.
    Setting max-width and display: block; allows img/picture/video content to scale with the size of the display without stretching.
@@ -235,69 +257,98 @@ ol {
   margin: var(--margin-text);
 }
 
-img,
-button {
-  margin: var(--margin-img);
-  padding: var(--padding-img);
+ul:not([role]),
+ol:not([role]) {
+  padding-left: var(--space-inset-l);
 }
+
+figure,
+button {
+  margin: var(--margin-figure);
+  padding: var(--padding-figure);
+}
+
+figcaption {
+  font-size: var(--font-size-xxs);
+  line-height: var(--line-height-xxs);
+  color: var(--primary-medium);
+}
+
+figcaption::before {
+  content: "Figure: ";
+}
+
 
 /* ------------------------------------------ *\
   || Utilities
 \* ------------------------------------------ */
 
-/* ------------------------------------------ *\
-  || Objects
-\* ------------------------------------------ */
+.hidden {
+  display: none;
+}
 
+.stack-0-margin {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.font-xs {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.font-xxs {
+  font-size: var(--font-size-xxs);
+  line-height: var(--line-height-xxs);
+}
+
+.hover-expand + p {
+  /* -webkit-box for clamping paragraph content https://daily-dev-tips.com/posts/css-modern-multi-line-ellipsis/ */
+  display: -webkit-box;
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+  max-height: 0;
+  margin: var(--space-stack-m);
+}
+.hover-expand:hover + p,
+.hover-expand + p:hover {
+  -webkit-line-clamp: 100;
+  max-height: 100%
+}
+.hover-expand::after {
+  content: "";
+}
+
+
+
+
+/* ------------------------------------------ *\
+  || Components
+\* ------------------------------------------ */
 
 .btn {
   /* Button typography */
-  letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-subheaders);
   font-family: var(--font-family-headers);
   background-color: var(--secondary-dark);
   color: var(--white);
+  letter-spacing: 0.05em;
   /* Button layout/reset */
-  border-radius: 1.5em;
-  padding: 0.333em 2em;
+  border-radius: var(--space-inset-l);
+  padding: var(--space-inset-xs) var(--space-inset-l);
 }
-
 .btn:hover,
 .btn:focus {
   cursor: pointer;
   opacity: 0.75;
 }
-
 .btn:active {
   transform: scale(0.95);
-}
-
-.hamburger {
-  width: 50%;
-}
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  display: block;
-  margin: 0 auto;
-  height: 3px;
-  background: white;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  width: 100%;
-}
-
-.hamburger::before {
-  transform: translateY(-6px);
-}
-.hamburger::after {
-  transform: translateY(3px);
 }
 
 .nav a {
@@ -306,7 +357,6 @@ button {
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
 }
-
 .page-nav a {
   text-transform: uppercase;
   color: var(--white);
@@ -314,46 +364,74 @@ button {
   font-weight: var(--font-weight-subheaders);
   padding: var(--space-inset-s) var(--space-inset-m);
 }
-
 .footer-nav a {
   color: var(--primary-light);
   padding: 0;
 }
-
 .page-nav {
   visibility: hidden;
   height: 0;
   position: absolute;
 }
-
 .page-nav--visible {
   visibility: visible;
   height: auto;
   position: relative;
 }
 
+.license-logo img {
+  display: inline-block;
+  max-height: var(--line-height-rem);
+  width: auto;
+}
+
+.hamburger {
+  width: 50%;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background: white;
+  transform: translateY(-9px);
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 100%;
+}
+.hamburger::before {
+  transform: translateY(-6px);
+}
+.hamburger::after {
+  transform: translateY(3px);
+}
+
 .toggle {
-  cursor: pointer;
-  width: 2em;
-  height: 2em;
-  border-radius: 50%;
-  background: var(--primary-medium);
-  color: var(--white);
-  transition: opacity 250ms ease;
   position: absolute;
   left: var(--space-inset-m);
+  width: var(--space-inset-l);
+  height: var(--space-inset-l);
+  background: var(--primary-medium);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 250ms ease;
 }
 
 .logo {
   align-self: center;
 }
 
+
 /* ------------------------------------------ *\
   || Containers
 \* ------------------------------------------ */
 
 .container {
-  /* Content will be centered without stretching at all device widths -- no media query required. */
+  /* Content inside a block with this class will be centered, take up 90% of parent width up to a defined maximum width -- no media query required. */
   width: 90%;
   max-width: var(--container-max-width);
   /* Center and pad to make sure that content does not hug the wall */
@@ -362,28 +440,17 @@ button {
 }
 
 .card {
+  /* Padding used to make sure that content does not hug with wall (no centering) */
   padding: var(--space-inset-xl) 0;
 }
 
 .card-s {
+  /* Padding used to make sure that content does not hug with wall (no centering) */
   padding: var(--space-inset-l);
 }
 
 .grid-col-a {
   grid-area: about;
-  /* -webkit-box for clamping paragraph content https://daily-dev-tips.com/posts/css-modern-multi-line-ellipsis/ */
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-
-  transition: all 0.3s ease-in;
-  max-height: 18rem;
-}
-
-.grid-col-a:hover {
-  -webkit-line-clamp: 40;
-  max-height: 100%
 }
 
 .grid-col-b {
@@ -391,11 +458,15 @@ button {
 }
 
 .grid-col-c {
-  grid-area: other-things;
+  grid-area: external-resources;
 }
 
 .grid-col-d {
   grid-area: and-more;
+}
+
+.grid-col-e {
+  grid-area: copyright;
 }
 
 /* ------------------------------------------ *\
@@ -430,6 +501,11 @@ button {
   font-weight: var(--font-weight-headers);
 }
 
+.section-1 footer {
+  text-align: right;
+  color: var(--primary-light);
+}
+
 .section-2 {
   background-color: var(--off-white);
   color: var(--black);
@@ -455,6 +531,10 @@ button {
   font-weight: var(--font-weight-headers);
 }
 
+.card-s em {
+  color: var(--secondary-dark);
+}
+
 .section-3 h1 {
   color: var(--secondary-dark);
   margin: var(--space-stack-m);
@@ -477,6 +557,7 @@ button {
 }
 
 .page-footer h1 {
+  color: var(--white);
   text-align: center;
 }
 
@@ -486,7 +567,7 @@ button {
   line-height: var(--line-height-m);
 }
 
-.page-footer :is(p, li, a) {
+.page-footer {
   color: var(--primary-light);
   font-size: var(--font-size-xs);
   line-height: var(--line-height-xs);
@@ -528,10 +609,12 @@ body > div {
 
   .tablet.grid-container {
     display: grid;
+    justify-items: start;
     grid-template-columns: 2fr var(--space-m) 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: auto 1fr;
     grid-template-areas: 
-      "about . getting-around other-things and-more";
+      "about . getting-around external-resources and-more"
+      "about . copyright copyright copyright";
     gap: var(--space-m);
   }
 
@@ -567,6 +650,7 @@ body > div {
     font-size: var(--font-size-m);
     line-height: var(--line-height-m);
   }
+
   .section-2 p,
   .section-3 p {
     font-size: var(--font-size-xs);
