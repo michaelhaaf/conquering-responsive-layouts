@@ -473,6 +473,7 @@ figcaption::before {
   || Sections
 \* ------------------------------------------ */
 
+
 .page-header {
   background-color: var(--primary-dark);
   color: var(--white);
@@ -483,6 +484,7 @@ figcaption::before {
   margin: 0;
   padding: 0;
 }
+
 
 .section-1 {
   background-color: var(--primary-medium);
@@ -506,6 +508,7 @@ figcaption::before {
   color: var(--primary-light);
 }
 
+
 .section-2 {
   background-color: var(--off-white);
   color: var(--black);
@@ -521,6 +524,7 @@ figcaption::before {
   text-align: center;
 }
 
+
 .section-3 {
   background-color: var(--white);
   color: var(--black);
@@ -529,10 +533,6 @@ figcaption::before {
 .section-3 em {
   color: var(--primary-light);
   font-weight: var(--font-weight-headers);
-}
-
-.card-s em {
-  color: var(--secondary-dark);
 }
 
 .section-3 h1 {
@@ -551,9 +551,16 @@ figcaption::before {
   margin: var(--space-stack-m);
 }
 
+.section-3 .card-s em {
+  color: var(--secondary-dark);
+}
+
+
 .page-footer {
+  color: var(--primary-light);
   background-color: var(--primary-dark);
-  color: var(--white);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
 }
 
 .page-footer h1 {
@@ -567,19 +574,10 @@ figcaption::before {
   line-height: var(--line-height-m);
 }
 
-.page-footer {
-  color: var(--primary-light);
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-xs);
-}
 
 /* ------------------------------------------ *\
   || Overrides
 \* ------------------------------------------ */
-
-body > div {
-  margin: 0 !important;
-}
 
 @media (width >= 45rem) {
 
@@ -653,8 +651,8 @@ body > div {
 
   .section-2 p,
   .section-3 p {
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-xs);
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
   }
 
 }
